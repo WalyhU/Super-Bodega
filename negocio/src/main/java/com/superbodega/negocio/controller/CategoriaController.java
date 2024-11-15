@@ -41,10 +41,10 @@ public class CategoriaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Categoria> updateCategoria(@PathVariable Long id, @RequestBody Categoria categoria) {
+    public ResponseEntity updateCategoria(@PathVariable Long id, @RequestBody Categoria categoria) {
         try {
-            Categoria updatedCategoria = categoriaService.updateCategoria(id, categoria);
-            return new ResponseEntity<>(updatedCategoria, HttpStatus.OK);
+            categoriaService.updateCategoria(id, categoria);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

@@ -30,8 +30,17 @@ public class Cliente {
     @Email(message = "El email debe ser válido")
     private String email;
 
+    @NotBlank(message = "La dirección es obligatoria")
+    @Size(max = 100, message = "La dirección no puede tener más de 100 caracteres")
+    private String direccion;
+    
+    @NotBlank(message = "El teléfono es obligatorio")
+    @Size(max = 15, message = "El teléfono no puede tener más de 15 caracteres")
+    private String telefono;
+    
     @Temporal(TemporalType.DATE)
     @Past(message = "La fecha de nacimiento debe ser en el pasado")
+    @Null
     private Date fechaNacimiento;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)

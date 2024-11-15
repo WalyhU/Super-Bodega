@@ -27,10 +27,9 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria updateCategoria(Long id, Categoria categoria) {
+    public void updateCategoria(Long id, Categoria categoria) {
         if (categoriaRepository.existsById(id)) {
-            categoria.setId(id);
-            return categoriaRepository.save(categoria);
+            categoriaRepository.updateCategoria(id, categoria.getNombre());
         } else {
             throw new IllegalArgumentException("Categoria no encontrada");
         }

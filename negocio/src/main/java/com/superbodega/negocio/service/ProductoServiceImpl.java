@@ -4,6 +4,7 @@ import com.superbodega.negocio.entity.Producto;
 import com.superbodega.negocio.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -27,12 +28,10 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public Producto updateProducto(Long id, Producto producto) {
+    public void updateProducto(Long id, Producto producto) {
         if (productoRepository.existsById(id)) {
-            producto.setId(id);
-            return productoRepository.save(producto);
+            productoRepository.updateProducto(id, producto.getNombre(), producto.getDescripcion(), producto.getPrecio(), producto.getStock(), producto.getCategoria(), producto.getProveedor());
         }
-        return null;
     }
 
     @Override

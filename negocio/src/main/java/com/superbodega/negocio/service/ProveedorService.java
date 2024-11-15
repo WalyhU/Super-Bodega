@@ -7,6 +7,6 @@ public interface ProveedorService {
     List<Proveedor> getAllProveedores();
     Proveedor getProveedorById(Long id);
     Proveedor saveProveedor(Proveedor proveedor);
-    Proveedor updateProveedor(Long id, Proveedor proveedor);
+    void updateProveedor(Long id, Proveedor proveedor);
     void deleteProveedor(Long id);
 }

@@ -27,12 +27,10 @@ public class ProveedorServiceImpl implements ProveedorService {
     }
 
     @Override
-    public Proveedor updateProveedor(Long id, Proveedor proveedor) {
+    public void updateProveedor(Long id, Proveedor proveedor) {
         if (proveedorRepository.existsById(id)) {
-            proveedor.setId(id);
-            return proveedorRepository.save(proveedor);
+            proveedorRepository.updateProveedor(id, proveedor.getNombre(), proveedor.getEmail());
         }
-        return null;
     }
 
     @Override

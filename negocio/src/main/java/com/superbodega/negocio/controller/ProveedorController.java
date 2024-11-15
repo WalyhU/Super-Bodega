@@ -41,10 +41,10 @@ public class ProveedorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Proveedor> updateProveedor(@PathVariable Long id, @RequestBody Proveedor proveedor) {
+    public ResponseEntity updateProveedor(@PathVariable Long id, @RequestBody Proveedor proveedor) {
         try {
-            Proveedor updatedProveedor = proveedorService.updateProveedor(id, proveedor);
-            return new ResponseEntity<>(updatedProveedor, HttpStatus.OK);
+            proveedorService.updateProveedor(id, proveedor);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

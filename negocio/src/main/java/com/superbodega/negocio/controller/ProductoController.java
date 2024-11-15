@@ -41,10 +41,10 @@ public class ProductoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Producto> updateProducto(@PathVariable Long id, @RequestBody Producto producto) {
+    public ResponseEntity updateProducto(@PathVariable Long id, @RequestBody Producto producto) {
         try {
-            Producto updatedProducto = productoService.updateProducto(id, producto);
-            return new ResponseEntity<>(updatedProducto, HttpStatus.OK);
+            productoService.updateProducto(id, producto);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

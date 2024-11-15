@@ -7,7 +7,7 @@ public interface ProductoService {
     List<Producto> getAllProductos();
     Producto getProductoById(Long id);
     Producto saveProducto(Producto producto);
-    Producto updateProducto(Long id, Producto producto);
+    void updateProducto(Long id, Producto producto);
     void updateProductoStock(Long id, Integer cantidad);
     void deleteProducto(Long id);
 }
